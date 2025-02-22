@@ -72,7 +72,8 @@
 
 <script>
     //import layout
-    import LayoutApp from '../../../Layouts/App.vue';
+   // Di file Dashboard/Index.vue
+    import AppLayout from '@/Layouts/App.vue'  // atau ../../Layouts/App.vue
 
     //import Heade and useForm from Inertia
     import { Head } from '@inertiajs/inertia-vue3';
