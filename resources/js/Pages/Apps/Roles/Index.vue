@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Permissions - Aplikasi Kasir</title>
+        <title>Roles - Aplikasi Kasir</title>
     </Head>
     <main class="c-main">
         <div class="container-fluid">
@@ -9,28 +9,44 @@
                     <div class="col-md-12">
                         <div class="card border-0 rounded-3 shadow border-top-purple">
                             <div class="card-header">
-                                <span class="font-weight-bold"><i class="fa fa-key"></i> PERMISSIONS</span>
+                                <span class="font-weight-bold"><i class="fa fa-shield-alt"></i> ROLES</span>
                             </div>
                             <div class="card-body">
                                 <form @submit.prevent="handleSearch">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" v-model="search" placeholder="search by permission name...">
+                                        
+                                        <Link href="/apps/roles/create" v-if="hasAnyPermission(['roles.create'])" class="btn btn-primary input-group-text"> <i class="fa fa-plus-circle me-2"></i> NEW</Link>
+                                       
+                                        <input type="text" class="form-control" v-model="search" placeholder="search by role name...">
+
                                         <button class="btn btn-primary input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
+
                                     </div>
                                 </form>
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Permission Name</th>
+                                            <th scope="col">Role Name</th>
+                                            <th scope="col" style="width:50%">Permissions</th>
+                                            <th scope="col" style="width:20%">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="(permission, index) in permissions.data" :key="index">
-                                            <td>{{ permission.name }}</td>
+                                        <tr v-for="(role, index) in roles.data" :key="index">
+                                            <td>{{ role.name }}</td>
+                                            <td>
+                                                <span v-for="(permission, index) in role.permissions" :key="index" class="badge badge-primary shadow border-0 ms-2 mb-2">
+                                                    {{ permission.name }}
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <Link href="#" v-if="hasAnyPermission(['roles.edit'])" class="btn btn-success btn-sm me-2"><i class="fa fa-pencil-alt me-1"></i> EDIT</Link>
+                                                <button v-if="hasAnyPermission(['roles.delete'])" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> DELETE</button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <Pagination :links="permissions.links" align="end"/>
+                                <Pagination :links="roles.links" align="end"/>
                             </div>
                         </div>
                     </div>
@@ -49,7 +65,7 @@
 
     //import Heade and Link from Inertia
     import { Head, Link } from '@inertiajs/inertia-vue3';
-    
+
     //import ref from vue
     import { ref } from 'vue';
     
@@ -67,9 +83,8 @@
             Pagination
         },
 
-        //props
         props: {
-            permissions: Object,
+            roles: Object,
         },
 
         setup() {
@@ -79,7 +94,7 @@
 
             //define method search
             const handleSearch = () => {
-                Inertia.get('/apps/permissions', {
+                Inertia.get('/apps/roles', {
                     
                     //send params "q" with value from state "search"
                     q: search.value,
