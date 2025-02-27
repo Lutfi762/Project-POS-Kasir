@@ -12,12 +12,12 @@
                                 <span class="font-weight-bold"><i class="fa fa-users"></i> USERS</span>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form @submit.prevent="handleSearch">
                                     <div class="input-group mb-3">
 
-                                        <Link href="/apps/users/create" v-if="hasAnyPermission(['users.create'])" class="btn btn-primary input-group-text"> <i class="fa fa-plus-circle me-2"></i> NEW</Link>
+                                        <Link :href="`/apps/users/${user.id}/edit`" v-if="hasAnyPermission(['users.edit'])" class="btn btn-success btn-sm me-2"><i class="fa fa-pencil-alt me-1"></i> EDIT</Link>
                                         
-                                        <input type="text" class="form-control" placeholder="search by user name...">
+                                        <input type="text" class="form-control" v-model="search" placeholder="search by user name...">
 
                                         <button class="btn btn-primary input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
 
@@ -68,6 +68,12 @@
     //import Heade and Link from Inertia
     import { Head, Link  } from '@inertiajs/inertia-vue3';
 
+    //import ref from vue
+    import { ref } from 'vue';
+    
+    //import inertia adapter
+    import { Inertia } from '@inertiajs/inertia';
+
     export default {
         //layout
         layout: LayoutApp,
@@ -82,6 +88,28 @@
         //props
         props: {
             users: Object,
+        },
+
+        setup() {
+
+            //define state search
+            const search = ref('' || (new URL(document.location)).searchParams.get('q'));
+
+            //define method search
+            const handleSearch = () => {
+                Inertia.get('/apps/users', {
+                    
+                    //send params "q" with value from state "search"
+                    q: search.value,
+                });
+            }
+
+            //return
+            return {
+                search,
+                handleSearch,
+            }
+
         }
     }
 </script>
