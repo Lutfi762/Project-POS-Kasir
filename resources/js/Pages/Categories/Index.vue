@@ -51,15 +51,14 @@
 </template>
 
 <script>
-    //import layout
-    import AppLayout from '@/Layouts/App.vue';  
+   //import layout 
+import AppLayout from "../../Layouts/App.vue";
 
-    //import component pagination
-    import Pagination from '@/Components/Pagination.vue';
+//import component pagination
+import Pagination from "../../Components/Pagination.vue";
 
-    //import Head and Link from Inertia
-    import { Head, Link } from '@inertiajs/inertia-vue3';
-
+//import Head and Link from Inertia
+import { Head, Link } from '@inertiajs/inertia-vue3';
     export default {
         //layout
         layout: AppLayout ,
