@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f272ad79fa79369193e8c86ee83a2e91",
+    "content-hash": "dd93aaa11cdd6a71de59a660c6ab878a",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2054,16 +2054,16 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "v1.1.5",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "0c67aba8387726458d42461eae91a3415593bbc4"
+                "reference": "a852ca54ab8cb6c27d613dc36ba3b65e4d19215b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/0c67aba8387726458d42461eae91a3415593bbc4",
-                "reference": "0c67aba8387726458d42461eae91a3415593bbc4",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/a852ca54ab8cb6c27d613dc36ba3b65e4d19215b",
+                "reference": "a852ca54ab8cb6c27d613dc36ba3b65e4d19215b",
                 "shasum": ""
             },
             "require": {
@@ -2109,7 +2109,7 @@
                 "issues": "https://github.com/Maatwebsite/Laravel-Excel/issues",
                 "source": "https://github.com/Maatwebsite/Laravel-Excel/tree/master"
             },
-            "time": "2014-07-10T09:06:07+00:00"
+            "time": "2014-06-07T17:15:06+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3230,25 +3230,25 @@
         },
         {
             "name": "psr/simple-cache",
-            "version": "3.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/simple-cache.git",
-                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865"
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/764e0b3939f5ca87cb904f570ef9be2d78a07865",
-                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=5.3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -3263,7 +3263,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
             "description": "Common interfaces for simple caching",
@@ -3275,9 +3275,9 @@
                 "simple-cache"
             ],
             "support": {
-                "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
+                "source": "https://github.com/php-fig/simple-cache/tree/master"
             },
-            "time": "2021-10-29T13:26:27+00:00"
+            "time": "2017-10-23T01:57:42+00:00"
         },
         {
             "name": "psy/psysh",
